@@ -51,6 +51,5 @@ with open(file_paths[0], "r") as file1:
 # 抽出したデータを新しいcsvファイルとして保存する
 with open(output_path, "w", newline="") as output_file:
     writer = csv.writer(output_file)
-    # writer.writerow(["InstanceType", "AvailabilityZone", "SPS1", "SPS2", "SPS3", "SPS4", "SPS5"])
     writer.writerow(["InstanceType", "AvailabilityZone"] + [f"SPS{i}" for i in range(1, num_files + 1)])
     writer.writerows(matching_rows)
